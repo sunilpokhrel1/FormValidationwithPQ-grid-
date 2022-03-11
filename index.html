@@ -1,0 +1,175 @@
+<html>
+
+<head>
+
+	<title>PQ Demo</title>
+
+	<link href="libs/jquery-ui-1.12.1.custom/jquery-ui.css" rel="stylesheet" />
+	<link href="libs/pqGrid/pqgrid.min.css" rel="stylesheet" />
+	<link href="libs/pqGrid/pqgrid.ui.min.css" rel="stylesheet" />
+	<link href="libs/pqGrid/themes/Office/pqgrid.css" rel="stylesheet" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link href="libs/jquery-ui-1.12.1.custom/jquery-ui.css" rel="stylesheet" />
+
+</head>
+
+<body>
+	<div class="container">
+		<div class="content" data-bind="with: MyModel">
+
+			<div class="card ">
+
+				<div class="card-header bg-primary ">
+					<h3 class="text-center text-white">Personal Information</h3>
+				</div>
+			</div>
+
+			<div class="card">
+				<div class ="card-body">
+					<div>
+						<form class = "form-inline">
+
+							<div class="form-group ">
+								<label for="fname1" class="mr-sm-2">First Name:</label>
+								<input type="text" data-bind="value:fname" class="form-control  mr-sm-4" id="txtFirstname"
+								placeholder="Enter first name  ">
+							</div>
+
+
+
+							<div class="form-group">
+								<label for="mname1" class="mr-sm-2">Middle Name:</label>
+								<input type="text" data-bind="value:mname" class="form-control mr-sm-4" id="txtMiddlename"
+								placeholder="Enter Middle name">
+							</div>
+
+							<div class="form-group">
+								<label for="lname1" class="mr-sm-2">Last Name:</label>
+								<input type="text" data-bind="value:lname" class="form-control mr-sm-4" id="txtLastname"
+								placeholder="Enter Last name">
+							</div>
+						</form>
+						<br>
+						<div>
+
+							<form class = "form-inline">
+								<div class="form-group">
+									<label for="dob1" class= "mr-sm-2">Enter DOB:</label>
+									<input type="date" data-bind="value:dob" class="form-control mr-sm-4 " id="txtDob" placeholder="D.O.B">
+								</div>
+
+								<div class="form-group">
+									<label for="gender1" class= "mr-sm-2" >Gender </label>
+									<select data-bind="value= GenderId,
+									options:$root.GenderList,
+									optionsValue:'Value',
+									optionsText:'Text',
+									optionsCaption:'---SELECT---'" class="form-control mr-sm-4 " id="ddlGender">
+
+								</select>
+							</div>	
+							<div class="form-group">
+								<label for="email1"  class="mr-sm-2" >Email:</label>
+								<input type="text" data-bind="value:email" class="form-control mr-sm-2 " id="txtEmail"
+								placeholder="abc@mail.com ">
+							</div>
+
+
+							<div class="form-group">
+								<label for="mnumber1"class="mr-sm-2">Mobile:</label>
+								<input type="tel" data-bind="value:mobile" class="form-control" id="txtMobilennum" placeholder="Enter Mobile Number" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}">
+
+							</div>
+
+						</form>
+
+					</div>
+					
+				</div>
+				<br>
+
+				<!-- <button type="button" class="  btn btn-primary col-md-12" data-bind="event: {click: $root.SaveInformation}" id="btnAddInformation">Save</button> -->
+
+
+			</div>
+		</div>
+		
+		<!-- <div class="content " data-bind="with: MyModel"> -->
+			<div class="card card-success"></div>
+			<div class="card-header bg-success ">
+				<h3 class="card-title text-center text-white">Details</h3>
+			</div>
+			<form>
+				<div class="card border border-primary">
+					<div class="card-body">
+						<div class="form-group">
+							<h6>First Name : <span data-bind= "text:fname"></span></h6>
+							<h6>Middle Name : <span data-bind="text: mname"></span></h6>
+							<h6>Last Name : <span data-bind="text: lname"></span></h6>
+							<h6>Dob : <span data-bind="text: dob"></span></h6>
+							<h6>Email : <span data-bind="text: email"></span></h6>
+							<h6>Mobile : <span data-bind="text: mobile"></span></h6>
+							<!-- <h6>address : <span data-bind="text: address"></span></h6> -->
+							<!-- <h6>qualifications : <span data-bind="text: level"></span></h6> -->
+							<!-- <h6>gender : <span data-bind="text: gendername"></span></h6> -->
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+			<div class= "card">
+				<div class= "card-body">
+					<div class="card-header bg-primary ">
+						<h3 class="text-center text-white">PQ Grid</h3>
+					</div>
+					<div id="myForm" data-bind="with: MyModel">
+						<select data-bind="
+						value: AddressId, 
+						options: $root.AddressList,
+						optionsValue: 'Value', 
+						optionsText: 'Text', 
+						optionsCaption: 'Address'" id="ddlAddress">
+					</select>
+
+					<input type="text" data-bind="value: StreetName" id="txtStreetName" placeholder="Enter Your Street Name" />
+
+					<input type="text" data-bind="value: HouseNumber" id="txtHouseNumber" placeholder="Enter Your House Number"/>
+
+
+
+					<button type="button" data-bind="event: {click: $root.SaveInformation}" id="btnAddInformation">Save</button>
+
+				</div>			
+				
+				
+				
+				<br>
+				<div style="width:400px;" id="demoGrid">
+
+					</div
+					<br />
+
+
+				</div>
+			</div>
+		</div>
+
+		<script src="libs/jquery/jquery-3.4.1.min.js" type="text/javascript"></script>
+		<script src="libs/jquery-ui-1.12.1.custom/jquery-ui.min.js" type="text/javascript"></script>
+		<script src="libs/pqGrid/pqgrid.min.js" type="text/javascript"></script>
+		<script src="js/knockout-3.3.0.js" type="text/javascript"></script>
+		<script src="libs/pqGrid/localize/pq-localize-en.js" type="text/javascript"></script>
+		<script type="text/javascript" src="libs/pqGrid/knockout/ko.pqgrid.min.js"></script>
+		<script src="indexVM.js" type="text/javascript"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+		crossorigin="anonymous"></script>
+	</body>
+
+	</html>
+
+
+
